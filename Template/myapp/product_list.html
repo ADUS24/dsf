@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+#productDiv:hover{
+background-color:grey;
+cursor:pointer;
+}
+</style>
+{% if user.is_authenticated%}
+{% for item in object_list%}
+
+<div id="productDiv" style="border:1px solid black;box-shadow:2px 3px 0px 0px;text-align:center;width:20%;margin:auto;padding:20px;float:left">
+<p>NAME:{{item.name}}</p>
+<p>PRICE:{{item.price}}</p>
+<a  style= "background-color:red;color:white" href="{% url 'myapp:updateproduct' item.productid %}">EDIT</a>
+<a style= "background-color:green;color:white"  href="{% url 'myapp:productdetails' item.productid %}">View</a>
+</div>
+{% endfor %}
+
+{% else %}
+<P>you are not logged in please</p> <a href="{% url 'login'%}">login</a>
+<div style="clear:both"> </div>
+{% endif %}
+{% endblock%}

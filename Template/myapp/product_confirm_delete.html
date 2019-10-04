@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<div style="text-align:center;">
+<p>Are you sure you want to delete {{object.name}}?</>
+<form method="post">
+{%csrf_token%}
+<input type="submit" style="color:white;background-color:red" value="YES">
+<a style="text-decoration:none" href="{% url 'myapp:productdetails' object.productid%}"><button style="color:white;background-color:green">NO</button></a>
+</div>
+
+{% endblock%}

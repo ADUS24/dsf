@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+<div id="productDiv" style="border:1px solid black;box-shadow:2px 3px 0px 0px;text-align:center;width:20%;margin:auto;padding:20px;float:left">
+<p>NAME:{{object.name}}</p>
+<p>PRICE:{{object.price}}</p>
+<a href="{% url 'myapp:deleteproduct' object.productid %}">Delete</a>
+</div>
+<div style="clear:both"></div>
+{% endblock %}
